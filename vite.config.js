@@ -13,7 +13,7 @@ export default defineConfig({
     VueI18nPlugin({
       include: resolve(
         dirname(fileURLToPath(import.meta.url)),
-        "./src/locales"
+        "./src/locales/**"
       ),
       //resolve(dirname(fileURLToPath(import.meta.url)), "./"),
       runtimeOnly: false,
