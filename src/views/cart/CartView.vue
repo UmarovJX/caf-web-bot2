@@ -175,14 +175,16 @@ function turnCheckoutButtonOff() {
 
 let webApp = window[TELEGRAM][WEB_APP];
 
-webApp.MainButton.setText(t("buttons.go_to_payment"));
-if (window[TELEGRAM][WEB_APP].colorScheme === "dark") {
-  window[TELEGRAM][WEB_APP].MainButton.color = "#D5C7C2";
-  window[TELEGRAM][WEB_APP].MainButton.textColor = "#1D0B00";
-} else {
-  window[TELEGRAM][WEB_APP].MainButton.color = "#683724";
-  window[TELEGRAM][WEB_APP].MainButton.textColor = "#FFFFFF";
-}
+setTimeout(() => {
+  webApp.MainButton.setText(t("buttons.go_to_payment"));
+  if (window[TELEGRAM][WEB_APP].colorScheme === "dark") {
+    window[TELEGRAM][WEB_APP].MainButton.color = "#D5C7C2";
+    window[TELEGRAM][WEB_APP].MainButton.textColor = "#1D0B00";
+  } else {
+    window[TELEGRAM][WEB_APP].MainButton.color = "#683724";
+    window[TELEGRAM][WEB_APP].MainButton.textColor = "#FFFFFF";
+  }
+}, 0);
 
 mainButtonMakeDisable();
 
