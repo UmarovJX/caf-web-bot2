@@ -8,12 +8,12 @@ import { isNotUndefinedNullEmptyZero } from "@/util/inspect";
 import { computed } from "vue";
 
 export function addressDetailsComposable() {
-  const addressStore = useAddressStore();
+  const { active, deliveryType } = useAddressStore();
 
   const addressInfo = computed(() => {
-    addressStore.active = !!addressStore.active;
+    active.value = !!active.value;
 
-    switch (addressStore.deliveryType) {
+    switch (deliveryType.value) {
       case "delivery": {
         const { name, home, floor, entrance } = getAddressSession();
         let detail = "";

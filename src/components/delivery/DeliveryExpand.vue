@@ -18,7 +18,9 @@ import {
 
 const emits = defineEmits(["apply-delivery", "select"]);
 
-const addressStore = useAddressStore();
+const { deliveryOptions2, deliveryType, active, updateDeliveryType } =
+  useAddressStore();
+
 const appElement = document.getElementById("app");
 const appBody = document.getElementById("app-body");
 
@@ -29,13 +31,13 @@ const permissionOfTypes = reactive({
 });
 
 const deliveryOptions = computed(() => {
-  return addressStore.deliveryOptions.filter((d) => {
+  return deliveryOptions2.value.filter((d) => {
     return permissionOfTypes["is_" + d.value];
   });
 });
 
 const bottomComponent = computed(() => {
-  switch (addressStore.deliveryType) {
+  switch (deliveryType.value) {
     case "delivery": {
       return ChooseAddress;
     }
@@ -51,7 +53,7 @@ const bottomComponent = computed(() => {
 });
 
 watch(
-  () => addressStore.deliveryType,
+  () => deliveryType.value,
   () => {
     validate();
   },
@@ -61,7 +63,7 @@ watch(
 );
 
 watch(
-  () => addressStore.active,
+  () => active.value,
   (a) => {
     if (a) {
       validate();
@@ -75,9 +77,9 @@ watch(
 
 function validate() {
   const isSatisfy =
-    (addressStore.deliveryType === "table" && hasTableSession()) ||
-    (addressStore.deliveryType === "delivery" && hasAddressSession()) ||
-    (addressStore.deliveryType === "pickup" && hasPickupBranchSession());
+    (deliveryType.value === "table" && hasTableSession()) ||
+    (deliveryType.value === "delivery" && hasAddressSession()) ||
+    (deliveryType.value === "pickup" && hasPickupBranchSession());
 
   if (isSatisfy) {
     emits("select");
@@ -87,7 +89,7 @@ function validate() {
 }
 
 function changeBodyStyle() {
-  if (addressStore.active) {
+  if (active.value) {
     appElement.style.overflowY = "hidden";
     appElement.style.height = "100vh";
     appBody.style.overflowY = "hidden";
@@ -112,18 +114,18 @@ async function fetchPaymentInfo() {
   permissionOfTypes.is_delivery = is_delivery;
 
   if (is_delivery) {
-    addressStore.updateDeliveryType("delivery");
+    updateDeliveryType("delivery");
   } else if (is_table) {
-    addressStore.updateDeliveryType("table");
+    updateDeliveryType("table");
   } else if (is_pickup) {
-    addressStore.updateDeliveryType("pickup");
+    updateDeliveryType("pickup");
   } else {
-    addressStore.updateDeliveryType(null);
+    updateDeliveryType(null);
   }
 }
 
 onMounted(() => {
-  if (addressStore.active) {
+  if (active.value) {
     validate();
   }
 });
@@ -132,7 +134,7 @@ fetchPaymentInfo();
 </script>
 
 <template>
-  <app-drawer :show="addressStore.active">
+  <app-drawer :show="active">
     <template #body>
       <title-medium class="c-delivery-title cp-1">
         Выберите способ получения
@@ -151,7 +153,7 @@ fetchPaymentInfo();
               </title-medium>
               <input
                 :id="deliveryOption.value"
-                v-model="addressStore.deliveryType"
+                v-model="deliveryType"
                 :value="deliveryOption.value"
                 name="option"
                 type="radio"

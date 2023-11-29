@@ -38,7 +38,8 @@ const router = useRouter();
 const { locale } = useI18n();
 
 const clientStore = useClientStore();
-const addressStore = useAddressStore();
+const { active, closeDrawerHandler, openDrawerHandler, deliveryType } =
+  useAddressStore();
 const homeCategories = ref([]);
 let basketCtx = ref({
   result: [],
@@ -48,7 +49,7 @@ let basketCtx = ref({
 let isFetching = ref(false);
 
 watch(
-  () => addressStore.active,
+  () => active.value,
   (a) => {
     if (a) {
       changeMainButtonOnExpand();
@@ -66,7 +67,7 @@ watch(
 );
 
 function confirmDeliveryDetails() {
-  addressStore.closeDrawerHandler();
+  closeDrawerHandler();
   if (basketCtx.value.result.length) {
     mainButtonSetText(t("buttons.go_to_cart"));
     nextTick(() => {
@@ -146,13 +147,13 @@ async function fetchItems() {
         mainButtonMakeDisable();
       }
 
-      if (addressStore.active) {
+      if (active.value) {
         const tableCondition =
-          addressStore.deliveryType === "table" && hasTableSession();
+          deliveryType.value === "table" && hasTableSession();
         const deliveryCondition =
-          addressStore.deliveryType === "delivery" && hasAddressSession();
+          deliveryType.value === "delivery" && hasAddressSession();
         const pickupCondition =
-          addressStore.deliveryType === "pickup" && hasPickupBranchSession();
+          deliveryType.value === "pickup" && hasPickupBranchSession();
 
         if (tableCondition || deliveryCondition || pickupCondition) {
           changeMainButtonOnExpand();
@@ -182,28 +183,28 @@ function openCartView() {
 }
 
 function checkClientAddress() {
-  switch (addressStore.deliveryType) {
+  switch (deliveryType.value) {
     case "delivery": {
       if (hasAddressSession()) {
-        addressStore.closeDrawerHandler();
+        closeDrawerHandler();
       } else {
-        addressStore.openDrawerHandler();
+        openDrawerHandler();
       }
       break;
     }
     case "pickup": {
       if (hasPickupBranchSession()) {
-        addressStore.closeDrawerHandler();
+        closeDrawerHandler();
       } else {
-        addressStore.openDrawerHandler();
+        openDrawerHandler();
       }
       break;
     }
     case "table": {
       if (hasTableSession()) {
-        addressStore.closeDrawerHandler();
+        closeDrawerHandler();
       } else {
-        addressStore.openDrawerHandler();
+        openDrawerHandler();
       }
       break;
     }

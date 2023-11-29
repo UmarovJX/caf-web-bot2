@@ -32,7 +32,8 @@ const { t } = useI18n();
 
 const route = useRoute();
 const router = useRouter();
-const addressStore = useAddressStore();
+const { active, closeDrawerHandler, openDrawerHandler, deliveryType } =
+  useAddressStore();
 const { addressInfo } = addressDetailsComposable();
 
 let deliveryIcon = ref("location_on");
@@ -70,7 +71,7 @@ const deliveryInformation = ref({
 let checkedPaymentOption = ref(null);
 
 watch(
-  () => addressStore.active,
+  () => active.value,
   (a) => {
     if (a) {
       changeMainButtonOnExpand();
@@ -83,7 +84,7 @@ watch(
 );
 
 function confirmDeliveryDetails() {
-  addressStore.closeDrawerHandler();
+  closeDrawerHandler();
   mainButtonSetText(t("buttons.checkout"));
   nextTick(() => {
     setTimeout(() => {
@@ -94,7 +95,7 @@ function confirmDeliveryDetails() {
 }
 
 function changeMainButtonOnExpand() {
-  if (addressStore.active) {
+  if (active.value) {
     mainButtonSetText("Подтвердить");
     mainButtonOffClick(paymentViewButtonHandler);
     mainButtonOnClick(confirmDeliveryDetails);
@@ -105,14 +106,14 @@ function changeMainButtonOnExpand() {
 async function fetchPreviewDetails() {
   startFetching();
   try {
-    let bodyCtx = { type: addressStore.deliveryType };
+    let bodyCtx = { type: deliveryType.value };
     switch (bodyCtx.type) {
       case "delivery": {
         if (hasAddressSession()) {
           const { id } = getAddressSession();
           bodyCtx.address_id = id;
         } else {
-          addressStore.openDrawerHandler();
+          openDrawerHandler();
         }
         break;
       }
@@ -121,7 +122,7 @@ async function fetchPreviewDetails() {
           const { id } = getPickupBranchSession();
           bodyCtx.branch_id = id;
         } else {
-          addressStore.openDrawerHandler();
+          openDrawerHandler();
         }
         break;
       }
@@ -131,7 +132,7 @@ async function fetchPreviewDetails() {
 
           bodyCtx.table_id = id;
         } else {
-          addressStore.openDrawerHandler();
+          openDrawerHandler();
         }
       }
     }
@@ -183,7 +184,7 @@ function initInvoice() {
 }
 
 function getIdByDeliveryType() {
-  switch (addressStore.deliveryType) {
+  switch (deliveryType.value) {
     case "delivery": {
       const { id } = getAddressSession();
       return id;
@@ -200,9 +201,9 @@ function getIdByDeliveryType() {
 }
 
 function findDeliveryIcon() {
-  if (addressStore.deliveryType === "pickup") {
+  if (deliveryType.value === "pickup") {
     deliveryIcon.value = "hail";
-  } else if (addressStore.deliveryType === "table") {
+  } else if (deliveryType.value === "table") {
     deliveryIcon.value = "table_restaurant";
   }
 }
@@ -212,14 +213,14 @@ async function submitOrder() {
   isSubmitting.value = true;
   try {
     const orderCtx = {
-      type: addressStore.deliveryType,
+      type: deliveryType.value,
       payment_system_id: checkedPaymentOption.value,
       comment: "",
       products: [],
       pickup_at: new Date(),
     };
 
-    if (addressStore.deliveryType === "delivery") {
+    if (deliveryType.value === "delivery") {
       orderCtx.address_id = getIdByDeliveryType();
     } else if (route.query.type === "pickup") {
       orderCtx.branch_id = getIdByDeliveryType();
@@ -254,7 +255,7 @@ async function submitOrder() {
 }
 
 function openDeliveryExpand() {
-  addressStore.openDrawerHandler();
+  openDrawerHandler();
 }
 
 async function paymentViewButtonHandler() {
@@ -268,28 +269,28 @@ async function paymentViewButtonHandler() {
 }
 
 function checkClientAddress() {
-  switch (addressStore.deliveryType) {
+  switch (deliveryType.value) {
     case "delivery": {
       if (hasAddressSession()) {
-        addressStore.closeDrawerHandler();
+        closeDrawerHandler();
       } else {
-        addressStore.openDrawerHandler();
+        openDrawerHandler();
       }
       break;
     }
     case "pickup": {
       if (hasPickupBranchSession()) {
-        addressStore.closeDrawerHandler();
+        closeDrawerHandler();
       } else {
-        addressStore.openDrawerHandler();
+        openDrawerHandler();
       }
       break;
     }
     case "table": {
       if (hasTableSession()) {
-        addressStore.closeDrawerHandler();
+        closeDrawerHandler();
       } else {
-        addressStore.openDrawerHandler();
+        openDrawerHandler();
       }
       break;
     }

@@ -4,11 +4,11 @@ import { XIcon } from "@/components/elements/material-icons";
 import { useAddressStore } from "@/store/address/address.store";
 import { addressDetailsComposable } from "@/composable/address.composable";
 
-const addressStore = useAddressStore();
+const { openDrawerHandler } = useAddressStore();
 const { addressInfo } = addressDetailsComposable();
 
 function openAddressPicker() {
-  addressStore.openDrawerHandler();
+  openDrawerHandler();
 }
 </script>
 

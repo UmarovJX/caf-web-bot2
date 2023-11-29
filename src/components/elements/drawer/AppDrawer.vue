@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps, onMounted, reactive } from "vue";
-// import { useAddressStore } from "@/store/address/address.store";
 
 const props = defineProps({
   show: {
@@ -21,9 +20,6 @@ const drawerStore = reactive({
     height: null,
   },
 });
-
-// const isActive = computed(() => props.show);
-// const addressStore = useAddressStore();
 
 function initializeBodyStyle() {
   drawerStore.app.overflowY = appElement.style.overflowY;
