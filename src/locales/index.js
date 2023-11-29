@@ -4,10 +4,12 @@ import ru from "@/locales/ru.json";
 import uz from "@/locales/uz.json";
 
 export const i18n = createI18n({
+  legacy: false,
   locale: "ru",
+  fallbackLocale: "ru",
   messages: {
-    uz,
     ru,
+    uz,
   },
 });
 
