@@ -15,6 +15,7 @@ export default defineConfig({
         dirname(fileURLToPath(import.meta.url)),
         "./src/locales/**"
       ),
+      runtimeOnly: false,
       //resolve(dirname(fileURLToPath(import.meta.url)), "./"),
     }),
   ],
@@ -25,5 +26,7 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 1600,
+    target: "esnext",
+    sourcemap: true,
   },
 });
