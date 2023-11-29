@@ -20,7 +20,7 @@ import {
 } from "@/util/main.button.util";
 
 const { t } = useI18n();
-console.log(t("buttons.add_to_cart"));
+console.log(t("buttons.go_to_cart"));
 // const locale = localStorage.getItem("locale") || "uz";
 
 const route = useRoute();
