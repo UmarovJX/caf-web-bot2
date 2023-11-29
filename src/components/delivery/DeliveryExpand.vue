@@ -18,8 +18,12 @@ import {
 
 const emits = defineEmits(["apply-delivery", "select"]);
 
-const { deliveryOptions2, deliveryType, active, updateDeliveryType } =
-  useAddressStore();
+const {
+  deliveryOptions: deliveryOptions2,
+  deliveryType,
+  active,
+  updateDeliveryType,
+} = useAddressStore();
 
 const appElement = document.getElementById("app");
 const appBody = document.getElementById("app-body");
