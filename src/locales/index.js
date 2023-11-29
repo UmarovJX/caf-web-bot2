@@ -1,16 +1,13 @@
 import { createI18n } from "vue-i18n";
 
-import ru from "@/locales/ru.json";
-import uz from "@/locales/uz.json";
+import messages from "@intlify/unplugin-vue-i18n/messages";
+console.log(messages);
 
 export const i18n = createI18n({
   legacy: false,
   locale: "ru",
   fallbackLocale: "ru",
-  messages: {
-    ru,
-    uz,
-  },
+  messages,
 });
 
 export function setupI18n(options = { locale: "ru" }) {
