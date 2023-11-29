@@ -16,7 +16,6 @@ export default defineConfig({
         "./src/locales/**"
       ),
       //resolve(dirname(fileURLToPath(import.meta.url)), "./"),
-      runtimeOnly: false,
     }),
   ],
   resolve: {
