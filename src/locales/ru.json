@@ -1,0 +1,96 @@
+{
+  "all": "Все",
+  "in_way": "Доставляется",
+  "waiting": "В ожидании",
+  "cancelled": "Отменено",
+  "accepted": "Принято",
+  "closed": "Доставлено",
+  "order_history": "История заказов",
+
+  "buttons": {
+    "go_to_cart": "Перейти в корзину",
+    "go_to_payment": "Перейти к оплате",
+    "add_to_cart": "Добавить в корзину",
+    "add": "Добавить",
+    "added_to_cart": "Добавлен в корзину",
+    "edit": "Применить",
+    "to_pay": "Заплатить",
+    "to_save": "Сохранить",
+    "changes_saved": "Изменения сохрвнены",
+    "required_to_fill": "Поля должны быть заполнены",
+    "checkout": "Оформить"
+  },
+  "titles": {
+    "scan": "Сканируйте",
+    "cart": "Корзина",
+    "payment": "Оплатить",
+    "my_addresses": "Мои адреса",
+    "user": "Пользователь",
+    "my_orders": "Мои заказы",
+    "language": "Язык",
+    "user_details": "Данные пользователья",
+    "delivery_address": "Адрес доставки",
+    "favorite": "Избранные",
+    "cashback": "Кешбэк"
+  },
+  "dropdown": {
+    "delivery": "Доставка",
+    "pickup": "Самовывоз",
+    "table": "За столом",
+    "nearest_addresses": "Ближайшие адреса"
+  },
+  "labels_placeholders": {
+    "name": "Имя",
+    "phone": "Номер телефона",
+    "address": "Адрес",
+    "entrance": "Подьезд",
+    "floor": "Этаж",
+    "flat": "Квартира",
+    "comments": "Комментарий",
+    "promocode": "Введите промокод, если у вас есть...",
+    "add_comment": "Добавить комментарий..."
+  },
+  "others": {
+    "bot_settings": "Настройки бота",
+    "all": "Все",
+    "delivering": "Доставляется",
+    "delivered": "Доставлено",
+    "cashback_balance": "Баланс кешбэка:",
+    "cashback_use": "Вы можете использовать кэшбэк при оплате",
+    "cashback_history": "История",
+    "sum": "сум",
+    "address_comment": "Код домофона, ориентир и т.д. (Необязательно)",
+    "no_address": "У вас нет адресов",
+    "order": "Заказ",
+    "choose_size": "Выберите размер",
+    "size": "Размер",
+    "options": "Опции",
+    "cart_comment": "Любые особые пожелания, детали, окончательные пожелания и т.д.",
+    "choose_delivery_address": "Выберите адрес доставки",
+    "in_cart": "В корзине",
+    "promocode": "Промокод",
+    "free_delivery": "Бесплатная доставка",
+    "total": "Итого",
+    "payment_now": "Оплачу сейчас",
+    "payment_after_delivery": "Оплачу после доставки",
+    "save_changes": "Изменения сохранены"
+  },
+  "author": {
+    "first_name": "",
+    "last_name": ""
+  },
+  "price": {
+    "from": "от { price } сум",
+    "uzs": "сум"
+  },
+  "user": {
+    "title": "Пользователь"
+  },
+  "language": {
+    "title": "Язык"
+  },
+  "order": {
+    "empty": "Заказов нет"
+  }
+}
+

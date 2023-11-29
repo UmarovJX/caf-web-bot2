@@ -1,0 +1,87 @@
+<script setup>
+import { onMounted, reactive } from "vue";
+import { useRoute, useRouter } from "vue-router";
+
+import TitleMedium from "@/components/reusable/title/TitleMedium.vue";
+import RoundButton from "@/components/reusable/button/RoundButton.vue";
+import { XIcon } from "@/components/elements/material-icons";
+
+import {
+  getTableSession,
+  hasTableSession,
+  saveRequestPageInQr,
+} from "@/util/address.util";
+import { isNotUndefinedNullEmptyZero } from "@/util/inspect";
+
+const route = useRoute();
+const router = useRouter();
+
+const tableDetails = reactive({
+  id: null,
+  name: null,
+  branchId: null,
+  branchName: null,
+});
+
+const emits = defineEmits(["select"]);
+
+function initializeTableDetails() {
+  if (hasTableSession()) {
+    emits("select");
+
+    const { id, name, branchId, branchName } = getTableSession();
+    tableDetails.id = id;
+    if (isNotUndefinedNullEmptyZero(name)) {
+      tableDetails.name = name;
+    }
+
+    if (isNotUndefinedNullEmptyZero(branchId)) {
+      tableDetails.branchId = branchId;
+    }
+
+    if (isNotUndefinedNullEmptyZero(branchName)) {
+      tableDetails.branchName = branchName;
+    }
+  }
+}
+
+function openQrPage() {
+  saveRequestPageInQr({
+    name: route.name,
+  });
+  router.push({
+    name: "table-scanner",
+  });
+}
+
+onMounted(() => {
+  initializeTableDetails();
+});
+</script>
+
+<template>
+  <div>
+    <title-medium class="cm-b-2">QR код стола</title-medium>
+    <div
+      v-if="tableDetails.name"
+      class="c-flex c-align-center cm-b-2 c-column-gap-1"
+    >
+      <x-icon name="table_restaurant" size="24" />
+      <span>{{ tableDetails.name }}</span>
+    </div>
+    <round-button
+      class="c-flex c-align-center justify-content-center"
+      @click="openQrPage"
+    >
+      <x-icon name="qr_code_2" />
+      <span class="cm-l-1"> Сканировать </span>
+    </round-button>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.c-address-empty-message {
+  color: var(--content_3);
+  min-height: 8rem;
+}
+</style>

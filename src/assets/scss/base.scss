@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+
+  /*BRAND*/
+  --white: #FFFFFF;
+  --brown: #683724;
+  --black: #36302D;
+
+  /*TG Default*/
+  --bg_color: #FFFFFF;
+  --text_color: #000000;
+  --hint_color: #999999;
+  --link_color: #168ACD;
+  --button_color: #40A7E3;
+  --button_text_color: #FFFFFF;
+  --secondary_bg_color: #F1F1F1;
+
+  /*Grayscale Warm*/
+  --content_1: #1D0B00;
+  --content_2: #564840;
+  --content_3: #99918C;
+  --border: #E9E7E6;
+  --background_secondary: #F6F5F5;
+  --background_primary: #FFFFFF;
+
+  /*Blue*/
+  --blue-base: #0085FF;
+  --blue-hover: #339DFF;
+  --blue-pressed: #1272CC;
+  --blue-border: #CCE7FF;
+  --blue-background: #E5F3FF;
+
+  /*Green*/
+  --green-base: #00BA34;
+  --green-hover: #33C85D;
+  --green-pressed: #00952A;
+  --green-border: #CCF1D6;
+  --green-background: #E5F8EB;
+
+  /*Yellow*/
+  --yellow-base: #FACC15;
+  --yellow-hover: #FBD644;
+  --yellow-pressed: #C8A311;
+  --yellow-border: #FEF5D0;
+  --yellow-background: #FFFAE8;
+
+  /*Orange*/
+  --orange-base: #F98600;
+  --orange-hover: #FA9E33;
+  --orange-pressed: #C76B00;
+  --orange-border: #FEE7CC;
+  --orange-background: #FFF4E8;
+
+  /*Red*/
+  --red-base: #E92C2C;
+  --red-hover: #ED5656;
+  --red-pressed: #BA2323;
+  --red-border: #FBD5D5;
+  --red-background: #FFEBEB;
+
+  /*Pink*/
+  --pink-base: #E92C2C;
+  --pink-hover: #ED5656;
+  --pink-pressed: #BA2323;
+  --pink-border: #FBD5D5;
+  --pink-background: #FFEBEB;
+
+  /*Violet*/
+  --violet-base: #8B2CE9;
+  --violet-hover: #A256ED;
+  --violet-pressed: #6F23BA;
+  --violet-border: #E8D5FB;
+  --violet-background: #F3EAFD;
+
+
+  /*SHADOW*/
+  --shadow-1: 0 1px 1px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 2px 1px rgba(0, 0, 0, 0.06), 0 1px 1px rgba(0, 0, 0, 0.08);
+  --shadow-3: 0 1px 18px rgba(0, 0, 0, 0.06), 0 6px 10px rgba(0, 0, 0, 0.08);
+  --shadow-4: 0 9px 46px rgba(0, 0, 0, 0.06), 0 24px 38px rgba(0, 0, 0, 0.04);
+  --shadow_inner-1: inset 0 1px 1px rgba(0, 0, 0, 0.06);
+  --shadow_inner-2: inset 0 2px 1px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+
+/* semantic color variables for this project */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+
+    /*BRAND*/
+    --white: #000000;
+    --brown: #D5C7C2;
+    --black: #C7C5C5;
+
+    /*TG Default*/
+    --bg_color: #17212B;
+    --text_color: #F5F5F5;
+    --hint_color: #708499;
+    --link_color: #6AB3F3;
+    --button_color: #5288C1;
+    --button_text_color: #FFFFFF;
+    --secondary_bg_color: #232E3C;
+
+    /*Grayscale Warm*/
+    --content_1: #E8E7E5;
+    --content_2: #BBB6B3;
+    --content_3: #776D66;
+    --border: #776D66;
+    --background_secondary: #28170D;
+    --background_primary: #1D0B00;
+
+    /*Blue*/
+    --blue-base: #1D0B00;
+    --blue-hover: #45A5FF;
+    --blue-pressed: #1272CC;
+    --blue-border: #193148;
+    --blue-background: #1A2631;
+
+    /*Green*/
+    --green-base: #17CB49;
+    --green-hover: #45D56D;
+    --green-pressed: #12A23A;
+    --green-border: #193D23;
+    --green-background: #1A2C1F;
+
+    /*Yellow*/
+    --yellow-base: #FACE22;
+    --yellow-hover: #FBD84E;
+    --yellow-pressed: #C8A51B;
+    --yellow-border: #473E1B;
+    --yellow-background: #302C1B;
+
+    /*Orange*/
+    --orange-base: #FF9F2D;
+    --orange-hover: #FFB257;
+    --orange-pressed: #CC7F24;
+    --orange-border: #48351E;
+    --orange-background: #31271C;
+
+    /*Red*/
+    --red-base: #F74141;
+    --red-hover: #F96767;
+    --red-pressed: #C63434;
+    --red-border: #462222;
+    --red-background: #301E1E;
+
+    /*Pink*/
+    --pink-base: #F03EA9;
+    --pink-hover: #F365BA;
+    --pink-pressed: #BA237E;
+    --pink-border: #C03287;
+    --pink-background: #2F1E28;
+
+    /*Violet*/
+    --violet-base: #963AF2;
+    --violet-hover: #AB61F5;
+    --violet-pressed: #782EC2;
+    --violet-border: #332045;
+    --violet-background: #261D30;
+
+
+    /*SHADOW*/
+    --shadow-1: 0 1px 1px rgba(0, 0, 0, 0.12);
+    --shadow-2: 0 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.16);
+    --shadow-3: 0 1px 18px rgba(0, 0, 0, 0.12), 0px 6px 10px rgba(0, 0, 0, 0.16);
+    --shadow-4: 0 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.08);
+    --shadow_inner-1: inset 0 1px 1px rgba(0, 0, 0, 0.12);
+    --shadow_inner-2: inset 0 2px 1px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(0, 0, 0, 0.16);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--content_1);
+  background: var(--background_primary);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 143%;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

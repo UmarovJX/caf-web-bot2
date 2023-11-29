@@ -1,0 +1,30 @@
+.address {
+  height: 100vh;
+  background-color: var(--background_primary);
+
+  &-item {
+    padding: 1rem 0;
+
+    & p {
+      color: var(--content_1);
+    }
+
+    & span {
+      color: var(--content_3);
+    }
+  }
+}
+
+.vh-100 {
+  height: calc(100vh - 62px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: .25%;
+    color: var(--content_3);
+  }
+}

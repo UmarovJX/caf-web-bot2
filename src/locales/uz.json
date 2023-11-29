@@ -1,0 +1,96 @@
+{
+  "all": "Hammasi",
+  "in_way": "Yetkazib berilayapti",
+  "waiting": "Kutilmoqda",
+  "cancelled": "Bekor qilindi",
+  "accepted": "Qabul qilindi",
+  "closed": "Yetkazib berildi",
+  "order_history": "Buyurtmalar tarixi",
+
+
+  "buttons": {
+    "go_to_cart": "Savatga o'tish",
+    "go_to_payment": "To'lovga o'tish",
+    "add_to_cart": "Savatga qo'shish",
+    "add": "Qo'shish",
+    "added_to_cart": "Savatga qo'shildi",
+    "edit": "O'zgartirish",
+    "to_pay": "To'lash",
+    "to_save": "Saqlash",
+    "changes_saved": "O'zgarishlar saqlandi",
+    "required_to_fill": "Maydonlar to'ldirilishi kerak",
+    "checkout": "Rasmiylashtirish"
+  },
+  "titles": {
+    "scan": "Skanerlash",
+    "cart": "Savat",
+    "payment": "To'lash",
+    "my_addresses": "Mening manzillarim",
+    "user": "Foydalanuvchi",
+    "my_orders": "Mening buyurtmalarim",
+    "language": "Til",
+    "user_details": "Foydalanuvchilarning ma'lumotlari",
+    "delivery_address": "Yetkazib berish manzili",
+    "favorite": "Sevimlilar",
+    "cashback": "Keshbek"
+  },
+  "dropdown": {
+    "delivery": "Yetkazib berish",
+    "pickup": "Olib ketish",
+    "table": "Stolda",
+    "nearest_addresses": "Yaqin manzillar"
+  },
+  "labels_placeholders": {
+    "name": "Ism",
+    "phone": "Telefon raqami",
+    "address": "Manzil",
+    "entrance": "Kirish",
+    "floor": "Qavat",
+    "flat": "Xonadon",
+    "comments": "Izohlar",
+    "promocode": "Agar promokod bo'lsa, uni kiriting...",
+    "add_comment": "Izoh qo'shish..."
+  },
+  "others": {
+    "bot_settings": "Bot sozlamalari",
+    "all": "Hammasi",
+    "delivering": "Yetkazib berilayapti",
+    "delivered": "Yetkazib berildi",
+    "cashback_balance": "Keshbek balansi:",
+    "cashback_use": "Keshbekni to'lov qilishdan oldin ishlatsangiz bo'ladi",
+    "cashback_history": "Tarix",
+    "sum": "so'm",
+    "address_comment": "Domofon kodi, orientir va boshqalar (Majburiy emas)",
+    "no_address": "Sizda manzil yo'q",
+    "order": "Buyurtma",
+    "choose_size": "Hajmni tanlang",
+    "size": "Hajm",
+    "options": "Variantlar",
+    "cart_comment": "Har qanday maxsus so'rovlar, tafsilotlar, yakuniy tilaklar va boshqalar.",
+    "choose_delivery_address": "Yetkazib berish manzilini tanlang",
+    "in_cart": "Savatda",
+    "promocode": "Promokod",
+    "free_delivery": "Tekin yeetkazib berish",
+    "total": "Jami",
+    "payment_now": "Hozir to'lash",
+    "payment_after_delivery": "Yetkazib berilgandan keyin to'lash",
+    "save_changes": "Oʻzgarishlar saqlandi"
+  },
+  "author": {
+    "first_name": "",
+    "last_name": ""
+  },
+  "price": {
+    "from": "{ price } so'mdan",
+    "uzs": "so'm"
+  },
+  "user": {
+    "title": "Foydalanuvchi"
+  },
+  "language": {
+    "title": "Til"
+  },
+  "order": {
+    "empty": "Buyurtmalar yo'q"
+  }
+}

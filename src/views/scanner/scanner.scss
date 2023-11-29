@@ -1,0 +1,50 @@
+.scanner {
+  background: transparent !important;
+  width: 100%;
+  height: 100%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.scan-head {
+  position: fixed;
+  padding: 1rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 99;
+  background: transparent;
+
+
+}
+
+.scanning-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 101;
+  transform: translate(-50%, -50%);
+}
+
+
+::v-deep {
+  video {
+    height: 100vh;
+    max-height: 100vh;
+  }
+
+  .scanner-container {
+    height: 100vh;
+  }
+
+  .overlay-element {
+    height: 100vh;
+
+  }
+}

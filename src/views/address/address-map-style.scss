@@ -1,0 +1,36 @@
+.address-map {
+  min-height: 100vh;
+  background-color: var(--background_primary);
+
+  &_inputs {
+    padding: .5rem 0;
+
+    &-block {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 8px;
+      grid-row-gap: 0;
+    }
+
+    &-block-1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &-block-2 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+
+    &-block-3 {
+      grid-area: 1 / 3 / 2 / 4;
+    }
+  }
+
+  &_comment {
+    color: var(--content_3);
+  }
+}
+
+.app-input {
+  margin-bottom: 0;
+}

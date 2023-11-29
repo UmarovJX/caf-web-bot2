@@ -1,0 +1,261 @@
+.custom-container {
+  padding: 1rem;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.product {
+
+  & img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &-title {
+    color: var(--content_1);
+  }
+
+  &-description {
+    color: var(--content_3);
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  &-sizes {
+    max-width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px dashed var(--background_secondary);
+  }
+
+  &-size {
+    min-width: 72px;
+    height: 72px;
+    color: var(--brown);
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--orange-background);
+    margin-left: .5rem;
+
+    &.active {
+      border: 1px solid var(--brown);
+      background-color: var(--orange-background);
+    }
+
+    &:first-child {
+      margin-left: 0 !important;
+    }
+  }
+
+  &-counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+
+    &_block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 128px;
+    }
+
+    & button {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      border: 1px solid var(--content_3);
+      color: var(--content_3);
+      background-color: var(--background_primary);
+    }
+
+    &_text {
+      color: var(--content_3);
+    }
+
+    &_price {
+      color: var(--content_1);
+    }
+  }
+
+  &-cart {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    //height: 56px;
+
+    & button {
+      width: 100%;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      z-index: 20;
+      background-color: var(--background_secondary);
+      color: var(--content_3);
+
+      & p {
+        color: var(--content_3);
+        margin-left: .5rem;
+      }
+
+      &.active {
+        background-color: var(--brown);
+
+        & p {
+          color: var(--background_primary);
+        }
+      }
+    }
+
+    &_info {
+      //position: fixed;
+      bottom: -56px;
+      //left: 0;
+      width: 100%;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--green-base);
+      transition: .3s;
+      color: var(--background_primary);
+      transform: translateY(0);
+
+      &.active {
+        transform: translateY(-100%);
+      }
+    }
+  }
+
+  &-like {
+    cursor: pointer;
+  }
+
+  &-options {
+    margin-top: 1.5rem;
+
+    & p {
+      color: var(--content_2);
+    }
+
+    &_block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 1rem 0 0.5rem;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: var(--content_2);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: 1px solid var(--content_3);
+  border-radius: 50%;
+}
+
+.checkmark-2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: transparent;
+  border: 2px solid var(--brown);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--brown);
+}
+
+.attr-values-wrapper{
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.square-radio-button{
+  background-color: var(--orange-background);
+  height: 72px;
+  min-width: 72px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.c-radio-active{
+    border: 1px solid var(--brown);
+  }
+}

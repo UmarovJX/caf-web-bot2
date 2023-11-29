@@ -1,0 +1,50 @@
+.cashback {
+  &-title {
+    color: var(--content_1);
+  }
+
+  &-balance {
+    padding: 1rem 0;
+
+    & p {
+      color: var(--content_2);
+    }
+
+    & span {
+      color: var(--content_1);
+    }
+  }
+
+  &-advice {
+    padding: .5rem 1rem;
+
+    & p {
+      color: var(--content_3);
+    }
+  }
+
+  &-history {
+    &_title {
+      color: var(--brown);
+      padding: .75rem 0 .5rem;
+    }
+
+    &_items {
+      margin-bottom: .5rem;
+    }
+
+    &_item {
+      padding: 1rem 0;
+
+      & p {
+        margin-left: 1rem;
+        color: var(--content_2);
+      }
+
+      & span {
+        display: block;
+        color: var(--green-base);
+      }
+    }
+  }
+}

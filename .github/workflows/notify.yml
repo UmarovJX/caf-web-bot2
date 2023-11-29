@@ -1,0 +1,22 @@
+name: Nofify
+on:
+  workflow_run:
+    workflows: ["ci"]
+    types:
+      - completed
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            Full Name: ${{ github.event.workflow_run.head_commit.author.name }}
+            Username: ${{ github.actor }}
+            Commit message: ${{ github.event.workflow_run.head_commit.message }}
+            Repository: ${{ github.repository }}
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
