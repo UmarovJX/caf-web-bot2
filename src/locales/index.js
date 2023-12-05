@@ -22,6 +22,7 @@ export const i18n = function install(app) {
     locale,
   };
 };
+window.t = t;
 
 export const useI18n = function () {
   return {
