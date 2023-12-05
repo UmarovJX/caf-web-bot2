@@ -116,7 +116,7 @@ async function fetchAccountDetails() {
   const {
     data: { result },
   } = await api.client.getClient();
-  locale.value = result.language;
+  locale.value = result.language || locale.value;
 }
 
 async function authenticateClient() {
