@@ -1,12 +1,12 @@
 import { createI18n } from "vue-i18n";
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 const locale = ref("ru");
 import uz from "./uz";
 import ru from "./ru";
-const messages = ref({ uz, ru });
+const messages = reactive({ uz, ru });
 function t(path) {
   const p = path.split(".");
-  let res = messages.value[locale.value];
+  let res = messages[locale.value];
   for (let key of p) {
     if (!res) break;
     res = res[key];

@@ -32,7 +32,7 @@ import {
 import { enableAppScroll } from "@/util/app.util";
 
 const { t, locale } = useI18n();
-console.log(t("buttons.go_to_cart"));
+console.log(t("buttons.add_to_cart"));
 const route = useRoute();
 const router = useRouter();
 

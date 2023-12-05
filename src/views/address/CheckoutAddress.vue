@@ -113,11 +113,6 @@ const defineRedirectPage = async () => {
   }
 };
 
-// window[TELEGRAM][WEB_APP].BackButton.onClick(async () => {
-//   console.log("llll");
-//   await defineRedirectPage();
-// });
-
 function changeLocation(location) {
   const newPosition = {
     latitude: location.latLng.lat(),

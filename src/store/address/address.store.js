@@ -26,7 +26,6 @@ let filterData = [];
 try {
   const { data } = await api.shop.getShopParams();
   filterData = data.result;
-  console.log(filterData, "data");
 } catch (e) {
   console.error(e, "error");
 }
@@ -55,6 +54,5 @@ export const useAddressStore = function () {
     closeDrawerHandler,
     updateDeliveryType,
   };
-  console.log("object:", res);
   return res;
 };
