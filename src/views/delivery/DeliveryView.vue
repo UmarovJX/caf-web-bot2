@@ -2,7 +2,7 @@
 import { onBeforeRouteLeave, useRoute, useRouter } from "vue-router";
 import { nextTick, onMounted, ref, watch } from "vue";
 
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 
 import VueElementLoading from "vue-element-loading";
 import DeliverySection from "@/views/delivery/DeliverySection.vue";
@@ -31,11 +31,10 @@ import {
 } from "@/util/address.util";
 import { enableAppScroll } from "@/util/app.util";
 
-const { t } = useI18n();
-
+const { t, locale } = useI18n();
+console.log(t("buttons.go_to_cart"));
 const route = useRoute();
 const router = useRouter();
-const { locale } = useI18n();
 
 const clientStore = useClientStore();
 const { active, closeDrawerHandler, openDrawerHandler, deliveryType } =

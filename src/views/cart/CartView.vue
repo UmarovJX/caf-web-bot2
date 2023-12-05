@@ -8,7 +8,7 @@ import { useClientStore } from "@/store/client/client.store";
 import { onBeforeRouteLeave, useRoute, useRouter } from "vue-router";
 import { objNotEmptyNullUndefined } from "@/util/object";
 import { TELEGRAM, WEB_APP } from "@/constants";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 import {
   mainButtonMakeDisable,
   mainButtonMakeVisible,

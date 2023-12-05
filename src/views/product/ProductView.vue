@@ -10,7 +10,7 @@ import TitleMedium from "@/components/reusable/title/TitleMedium.vue";
 import VueElementLoading from "vue-element-loading";
 import { TELEGRAM, WEB_APP } from "@/constants";
 
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 import {
   mainButtonHideProgress,
   mainButtonMakeVisible,

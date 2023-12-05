@@ -14,7 +14,7 @@ import {
   mainButtonSetText,
 } from "@/util/main.button.util";
 
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 import { useAddressStore } from "@/store/address/address.store";
 import { addressDetailsComposable } from "@/composable/address.composable";
 import { XIcon } from "@/components/elements/material-icons";

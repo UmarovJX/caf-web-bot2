@@ -13,7 +13,7 @@ import {
   mainButtonOnClick,
   mainButtonSetText,
 } from "@/util/main.button.util";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 
 const { t } = useI18n();
 

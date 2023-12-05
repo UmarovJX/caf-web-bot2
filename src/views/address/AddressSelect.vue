@@ -8,7 +8,7 @@ import { XIcon } from "@/components/elements/material-icons";
 import VueElementLoading from "vue-element-loading";
 import { TELEGRAM, WEB_APP } from "@/constants";
 
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 
 const { t } = useI18n();
 

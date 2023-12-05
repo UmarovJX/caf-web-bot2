@@ -4,7 +4,7 @@ import api from "@/services/api";
 import { onMounted, ref } from "vue";
 import { TELEGRAM, WEB_APP } from "@/constants";
 import { onBeforeRouteLeave, useRoute, useRouter } from "vue-router";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 import { mainButtonOffClick, mainButtonOnClick } from "@/util/main.button.util";
 
 const { t } = useI18n();

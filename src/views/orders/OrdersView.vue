@@ -6,7 +6,7 @@ import XIcon from "@/components/elements/material-icons/XIcon.vue";
 import VueElementLoading from "vue-element-loading";
 import { isNotUndefinedNullEmptyZero } from "@/util/inspect";
 import api from "@/services/api";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 
 const { t } = useI18n();
 

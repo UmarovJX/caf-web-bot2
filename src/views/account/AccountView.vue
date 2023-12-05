@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 import { XIcon } from "../../components/elements/material-icons";
 import api from "../../services/api";
 import { TELEGRAM, WEB_APP } from "@/constants";

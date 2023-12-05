@@ -6,7 +6,7 @@ import api from "@/services/api";
 import { onBeforeRouteLeave, useRoute, useRouter } from "vue-router";
 import { GoogleMap, Marker } from "vue3-google-map";
 import { TELEGRAM, WEB_APP } from "@/constants";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "@/locales";
 import { mainButtonOffClick, mainButtonOnClick } from "@/util/main.button.util";
 
 const route = useRoute();
