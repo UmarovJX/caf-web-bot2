@@ -66,7 +66,7 @@ async function fetchAccountDetails() {
   } = await api.client.getClient();
   firstName.value = result.first_name;
   phone.value = result.phone;
-  locale.value = result.language ?? locale.value;
+  locale.value = result.language || locale.value;
   checkedLangOption.value = locale.value;
 }
 
