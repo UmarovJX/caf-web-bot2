@@ -1,5 +1,5 @@
 import api from "@/services/api";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 const deliveryOptions = ref([
   {
     id: 1,
@@ -22,6 +22,10 @@ const deliveryOptions = ref([
 ]);
 const active = ref(false);
 const deliveryType = ref("table");
+watch(
+  () => deliveryType.value,
+  (a) => console.log("delivery-type", a)
+);
 let filterData = [];
 try {
   const { data } = await api.shop.getShopParams();
