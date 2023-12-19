@@ -22,10 +22,7 @@ const deliveryOptions = ref([
 ]);
 const active = ref(false);
 const deliveryType = ref("table");
-watch(
-  () => deliveryType.value,
-  (a) => console.log("delivery-type", a)
-);
+
 let filterData = [];
 try {
   const { data } = await api.shop.getShopParams();

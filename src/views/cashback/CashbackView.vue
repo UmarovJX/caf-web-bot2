@@ -21,7 +21,6 @@ async function getCashback() {
   await api.product
     .fetchCashback()
     .then((res) => {
-      console.log(res);
       cashbackItems.value = res.data.result;
     })
     .catch((error) => {

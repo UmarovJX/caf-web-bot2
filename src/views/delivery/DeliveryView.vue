@@ -37,7 +37,6 @@ const { user } = useUser();
 const { t, locale } = useI18n();
 locale.value = user.language || locale.value;
 
-console.log(t("buttons.add_to_cart"));
 const route = useRoute();
 const router = useRouter();
 
@@ -130,7 +129,6 @@ async function fetchItems() {
     .then(() => {
       if (basketCtx.value.result.length) {
         if (route.name === "delivery-view") {
-          console.log("delivery-view if");
           mainButtonMakeVisible();
           mainButtonOnClick(openCartView);
         }

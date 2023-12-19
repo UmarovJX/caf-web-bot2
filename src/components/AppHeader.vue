@@ -65,7 +65,6 @@ async function checkOptions() {
   try {
     const { data } = await api.shop.getShopParams();
     options = options.filter((item) => data.result[item.check]);
-    console.log(options, "ltsValue");
   } catch (e) {
     console.error(e, "error");
   }

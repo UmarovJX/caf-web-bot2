@@ -84,7 +84,6 @@ async function getBranchList() {
     nearestBranches.value.list = data.result;
   } finally {
     nearestBranches.value.isFetching = false;
-    console.log("final");
   }
 }
 

@@ -69,7 +69,6 @@ export class HandleBackButton {
   }
 
   async openPaymentViewByQuery() {
-    // console.log("openPaymentViewByQuery");
     await this.push("payment-view", {}, this.route.query);
   }
 

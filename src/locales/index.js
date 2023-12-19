@@ -7,10 +7,7 @@ const messages = reactive({ uz, ru });
 function t(path) {
   const p = path.split(".");
   let res = messages[locale.value];
-  console.log("path", path);
-  console.log("locale", locale.value);
   for (let key of p) {
-    console.log("in", res);
     if (!res) break;
     res = res[key];
   }

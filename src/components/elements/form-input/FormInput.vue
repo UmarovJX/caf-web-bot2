@@ -19,7 +19,6 @@ const inputVal = computed({
     return prop.propsData.value;
   },
   set(val) {
-    console.log(val);
     emit("update:modelValue", val);
   },
 });

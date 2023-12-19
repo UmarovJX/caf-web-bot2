@@ -102,8 +102,6 @@ function switchFlash() {}
 
 onUnmounted(() => {
   window.Telegram.WebApp.onEvent((eventType, eventHandler) => {
-    console.log(eventType, "eventType");
-    console.log(eventHandler, "eventHandler");
     scanEvent.value = eventHandler;
     scanType.value = eventType;
     // if (eventHandler) {

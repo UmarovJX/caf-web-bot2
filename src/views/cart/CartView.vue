@@ -43,9 +43,7 @@ const checkoutButton = ref({
 const openDeliveryCollapse = ref(false);
 
 watch(basket.value.items, (items) => {
-  console.log("items", items);
   if (!items.length) {
-    console.log("inline");
     mainButtonMakeDisable();
     mainButtonOffClick(cartViewButtonHandler);
   }

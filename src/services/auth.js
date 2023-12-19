@@ -6,7 +6,6 @@ class AuthService extends Core {
   }
 
   signIn(clientId) {
-    console.log(clientId, "clientId");
     return this.post(`login`, {
       telegram_id: clientId,
     });

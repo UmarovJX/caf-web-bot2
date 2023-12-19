@@ -122,7 +122,6 @@ const createClientAddress = async () => {
   try {
     const { data } = await api.client.createAddress(body);
     if (data.result) {
-      console.log("create address", route);
       if (route.name === "checkout-address-create") {
         await router.push({
           name: "address-select",
