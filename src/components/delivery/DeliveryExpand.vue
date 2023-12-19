@@ -116,15 +116,12 @@ async function fetchPaymentInfo() {
   permissionOfTypes.is_pickup = is_pickup;
   permissionOfTypes.is_table = is_table;
   permissionOfTypes.is_delivery = is_delivery;
-
-  if (is_delivery) {
-    updateDeliveryType("delivery");
-  } else if (is_table) {
-    updateDeliveryType("table");
-  } else if (is_pickup) {
-    updateDeliveryType("pickup");
-  } else {
-    updateDeliveryType(null);
+  const types = [];
+  if (is_pickup) types.push("pickup");
+  if (is_table) types.push("table");
+  if (is_delivery) types.push("delivery");
+  if (!types.includes(deliveryType.value)) {
+    updateDeliveryType(types[0]);
   }
 }
 
