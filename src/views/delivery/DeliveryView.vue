@@ -30,8 +30,13 @@ import {
   hasTableSession,
 } from "@/util/address.util";
 import { enableAppScroll } from "@/util/app.util";
+import { useUser } from "@/composable/client";
+import { useHomeInfo } from "@/composable/home";
 
+const { user } = useUser();
 const { t, locale } = useI18n();
+locale.value = user.language || locale.value;
+
 console.log(t("buttons.add_to_cart"));
 const route = useRoute();
 const router = useRouter();
@@ -87,11 +92,8 @@ function changeMainButtonOnExpand() {
 async function fetchHomeItems() {
   isFetching.value = true;
   try {
-    const {
-      data: { result },
-    } = await api.home.getHomeItems();
-
-    homeCategories.value = result;
+    const res = await useHomeInfo();
+    homeCategories.value = res;
   } finally {
     isFetching.value = false;
   }
@@ -112,13 +114,6 @@ async function fetchBasketProducts() {
 
 let webApp = window[TELEGRAM][WEB_APP];
 
-async function fetchAccountDetails() {
-  const {
-    data: { result },
-  } = await api.client.getClient();
-  locale.value = result.language || locale.value;
-}
-
 async function authenticateClient() {
   clientStore.initializeClient({ webApp: window[TELEGRAM][WEB_APP] });
   const clientId = window[TELEGRAM][WEB_APP].initDataUnsafe?.user?.id;
@@ -130,11 +125,8 @@ async function authenticateClient() {
 }
 
 async function fetchItems() {
-  await Promise.allSettled([
-    fetchHomeItems(),
-    fetchAccountDetails(),
-    fetchBasketProducts(),
-  ])
+  const requests = [fetchBasketProducts(), fetchHomeItems()];
+  await Promise.allSettled(requests)
     .then(() => {
       if (basketCtx.value.result.length) {
         if (route.name === "delivery-view") {
