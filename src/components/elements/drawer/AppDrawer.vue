@@ -37,17 +37,25 @@ onMounted(() => {
   <Teleport :disabled="props.show" to="body">
     <Transition name="modal">
       <div v-if="props.show" class="modal-mask">
-        <div class="modal-container">
-          <div class="modal-header">
-            <slot name="header"></slot>
-          </div>
+        <div
+          style="
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+          "
+        >
+          <div class="modal-container">
+            <div class="modal-header">
+              <slot name="header"></slot>
+            </div>
 
-          <div class="modal-body">
-            <slot name="body"></slot>
-          </div>
+            <div class="modal-body">
+              <slot name="body"></slot>
+            </div>
 
-          <div class="modal-footer">
-            <slot name="footer"></slot>
+            <div class="modal-footer">
+              <slot name="footer"></slot>
+            </div>
           </div>
         </div>
       </div>
