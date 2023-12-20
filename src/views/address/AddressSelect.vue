@@ -131,6 +131,11 @@ window[TELEGRAM][WEB_APP].MainButton.isVisible = true;
 
 <template>
   <div class="address-select-wrapper">
+    <vue-element-loading
+      :active="address.isFetching"
+      :is-full-screen="true"
+      color="#683724"
+    />
     <div>
       <!--      <div class="header d-flex align-items-center justify-content-between">-->
       <!--        <p class="header-title t-large">Выберите адрес</p>-->
@@ -141,11 +146,6 @@ window[TELEGRAM][WEB_APP].MainButton.isVisible = true;
           <x-icon color="var(--brown)" name="add" size="24" />
         </span>
       </div>
-      <vue-element-loading
-        :active="address.isFetching"
-        :is-full-screen="false"
-        color="#683724"
-      />
       <div class="header-body_content">
         <div class="custom-container">
           <div>

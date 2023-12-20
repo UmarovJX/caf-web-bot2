@@ -114,8 +114,8 @@ getBranchList();
   <div class="pickup address-select-wrapper">
     <vue-element-loading
       :active="nearestBranches.isFetching"
-      :is-full-screen="true"
       color="#683724"
+      background-color="rgba(0, 0, 0, .2)"
     />
     <title-medium class="cm-b-2">Ближайшие адреса</title-medium>
 

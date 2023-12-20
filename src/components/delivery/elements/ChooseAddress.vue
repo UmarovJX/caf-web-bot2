@@ -98,13 +98,13 @@ fetchClientAddress();
 
 <template>
   <div class="address-select-wrapper">
-    <vue-element-loading
-      :active="address.isFetching"
-      :is-full-screen="true"
-      color="#683724"
-    />
     <title-medium class="cm-b-2">Мои адреса</title-medium>
     <div>
+      <vue-element-loading
+        :active="address.isFetching"
+        color="#683724"
+        background-color="rgba(0, 0, 0, .2)"
+      />
       <label
         v-for="direct in address.list"
         :key="direct.id"
