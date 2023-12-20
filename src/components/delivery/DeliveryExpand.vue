@@ -9,7 +9,7 @@ import ChooseTable from "@/components/delivery/elements/ChooseTable.vue";
 import { useAddressStore } from "@/store/address/address.store";
 import { computed, defineEmits, onMounted, reactive, watch } from "vue";
 import { mainButtonMakeDisable } from "@/util/main.button.util";
-import shop from "@/services/shop";
+import { useMainInfo } from "@/composable/cache";
 import {
   hasAddressSession,
   hasPickupBranchSession,
@@ -111,7 +111,7 @@ async function fetchPaymentInfo() {
     data: {
       result: { is_pickup, is_table, is_delivery },
     },
-  } = await shop.getShopParams();
+  } = await useMainInfo();
 
   permissionOfTypes.is_pickup = is_pickup;
   permissionOfTypes.is_table = is_table;

@@ -6,6 +6,9 @@ import api from "../../services/api";
 import { TELEGRAM, WEB_APP } from "@/constants";
 import RoundButton from "@/components/reusable/button/RoundButton.vue";
 
+import { useShopInfo } from "@/composable/cache";
+import { useUser } from "@/composable/client";
+
 const { locale } = useI18n();
 const firstName = ref(null);
 const phone = ref(null);
@@ -61,19 +64,17 @@ let webApp = window[TELEGRAM][WEB_APP];
 webApp.MainButton.isVisible = false;
 
 async function fetchAccountDetails() {
-  const {
-    data: { result },
-  } = await api.client.getClient();
-  firstName.value = result.first_name;
-  phone.value = result.phone;
-  locale.value = result.language || locale.value;
+  const { user } = await useUser();
+  firstName.value = user.value.first_name;
+  phone.value = user.value.phone;
+  locale.value = user.value.language || locale.value;
   checkedLangOption.value = locale.value;
 }
 
 async function fetchShopInfo() {
   const {
     data: { result },
-  } = await api.shop.getShopInfo();
+  } = await useShopInfo();
   langOptions.value = result.language;
 }
 

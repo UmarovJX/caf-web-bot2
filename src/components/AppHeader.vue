@@ -9,7 +9,7 @@ import { useClientStore } from "@/store/client/client.store";
 import AddressPicker from "@/components/delivery/AddressPicker.vue";
 import XIcon from "@/components/elements/material-icons/XIcon.vue";
 import { TELEGRAM, WEB_APP } from "@/constants";
-
+import { useMainInfo } from "@/composable/cache";
 // const isActive = ref(false);
 const client = useClientStore();
 
@@ -63,7 +63,7 @@ let options = [
 
 async function checkOptions() {
   try {
-    const { data } = await api.shop.getShopParams();
+    const { data } = await useMainInfo();
     options = options.filter((item) => data.result[item.check]);
   } catch (e) {
     console.error(e, "error");
@@ -158,6 +158,14 @@ webApp.ready();
   >
     <address-picker />
 
+    <router-link :to="{ name: 'cart-view' }" class="header-icon">
+      <x-icon
+        color="var(--brown)"
+        name="shopping_cart"
+        size="18"
+        style="margin-right: 10px"
+      />
+    </router-link>
     <router-link :to="{ name: 'account-view' }" class="header-icon">
       <x-icon color="var(--brown)" name="person" size="18" />
     </router-link>

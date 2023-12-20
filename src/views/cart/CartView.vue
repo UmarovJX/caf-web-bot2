@@ -1,7 +1,6 @@
 <script setup>
 import { ref, watch } from "vue";
 import api from "@/services/api";
-import VueElementLoading from "vue-element-loading";
 import CartItem from "@/views/cart/CartItem.vue";
 import AppHeader from "@/components/AppHeader.vue";
 import { useClientStore } from "@/store/client/client.store";
@@ -212,12 +211,6 @@ onBeforeRouteLeave(() => {
       v-if="openDeliveryCollapse"
       :open-delivery="openDeliveryCollapse"
       @turn-loading-off="turnCheckoutButtonOff"
-    />
-
-    <vue-element-loading
-      :active="basket.isFetching"
-      :is-full-screen="true"
-      color="#683724"
     />
     <div :class="{ 'cm-t-3': openDeliveryCollapse }" class="header">
       <p class="cart-title t-large cm-t-1">{{ $t("titles.cart") }}</p>

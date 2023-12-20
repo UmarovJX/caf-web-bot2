@@ -31,11 +31,11 @@ import {
 } from "@/util/address.util";
 import { enableAppScroll } from "@/util/app.util";
 import { useUser } from "@/composable/client";
-import { useHomeInfo } from "@/composable/home";
+import { useHomeInfo, useShopInfo } from "@/composable/cache";
 
 const { user } = useUser();
 const { t, locale } = useI18n();
-locale.value = user.language || locale.value;
+locale.value = user.value.language || locale.value;
 
 const route = useRoute();
 const router = useRouter();
@@ -153,7 +153,7 @@ async function fetchItems() {
     })
     .finally(async () => {
       try {
-        const { data } = await api.shop.getShopInfo();
+        const { data } = await useShopInfo();
         localStorage.setItem("currency", JSON.stringify(data.result.currency));
       } catch (e) {
         console.error(e, "error");

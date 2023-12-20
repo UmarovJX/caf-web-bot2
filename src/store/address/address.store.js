@@ -1,4 +1,4 @@
-import api from "@/services/api";
+import { useMainInfo } from "@/composable/cache";
 import { ref, watch } from "vue";
 const deliveryOptions = ref([
   {
@@ -25,7 +25,7 @@ const deliveryType = ref("table");
 
 let filterData = [];
 try {
-  const { data } = await api.shop.getShopParams();
+  const { data } = await useMainInfo();
   filterData = data.result;
 } catch (e) {
   console.error(e, "error");

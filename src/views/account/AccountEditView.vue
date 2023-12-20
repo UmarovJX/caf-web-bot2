@@ -7,6 +7,7 @@ import { TELEGRAM, WEB_APP } from "@/constants";
 
 import { useI18n } from "@/locales";
 import { mainButtonOffClick, mainButtonOnClick } from "@/util/main.button.util";
+import { useUser, reFetchClient } from "@/composable/client";
 
 const { t } = useI18n();
 
@@ -31,9 +32,9 @@ const isSubmitted = ref(false);
 const isValidated = ref(false);
 
 async function fetchAccountDetails() {
-  const { data } = await api.client.getClient();
-  name.value.value = data.result.first_name;
-  phone.value.value = data.result.phone;
+  const { user } = await useUser();
+  name.value.value = user.value.first_name;
+  phone.value.value = user.value.phone;
 }
 
 const updateClientSubmit = async () => {
@@ -42,9 +43,12 @@ const updateClientSubmit = async () => {
       first_name: name.value.value,
       phone: phone.value.value,
     };
-    await api.client.updateClient(body).finally(async () => {
-      await router.push({ name: "account-view" });
-    });
+    await api.client
+      .updateClient(body)
+      .then(() => reFetchClient())
+      .finally(async () => {
+        await router.push({ name: "account-view" });
+      });
   }
 };
 

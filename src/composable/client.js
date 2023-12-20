@@ -10,3 +10,10 @@ export function useUser() {
     user,
   };
 }
+
+export async function reFetchClient() {
+  const {
+    data: { result },
+  } = await api.client.getClient();
+  user.value = result;
+}
