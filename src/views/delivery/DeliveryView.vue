@@ -250,22 +250,23 @@ onBeforeRouteLeave(() => {
         />
       </div>
     </div>
+
+    <delivery-expand
+      @select="changeMainButtonOnExpand"
+      @apply-delivery="changeMainButtonOnExpand"
+    />
     <div
       class="backdrop"
       v-if="active"
       style="
         position: absolute;
         height: 100vh;
+        width: 100%;
         top: 0;
         left: 0;
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(2px);
       "
     ></div>
-
-    <delivery-expand
-      @select="changeMainButtonOnExpand"
-      @apply-delivery="changeMainButtonOnExpand"
-    />
   </div>
 </template>
 
