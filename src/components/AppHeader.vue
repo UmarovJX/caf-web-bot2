@@ -157,7 +157,7 @@ webApp.ready();
     "
   >
     <address-picker />
-    <div>
+    <div class="d-flex">
       <router-link
         :to="{ name: 'cart-view' }"
         class="header-icon"
