@@ -31,12 +31,20 @@ const props = defineProps({
   overflow-x: scroll;
   background-color: #683724;
   display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 5px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &-link {
     // writing-mode: vertical-rl;
     // text-orientation: mixed;
     // transform: rotate(180deg);
-    padding: 1rem 0;
     color: var(--content_3);
 
     &.active {
