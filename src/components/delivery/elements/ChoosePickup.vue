@@ -112,14 +112,14 @@ getBranchList();
 
 <template>
   <div class="pickup address-select-wrapper">
-    <vue-element-loading
-      :active="nearestBranches.isFetching"
-      color="#683724"
-      background-color="rgba(0, 0, 0, .2)"
-    />
     <title-medium class="cm-b-2">Ближайшие адреса</title-medium>
 
     <div>
+      <vue-element-loading
+        :active="nearestBranches.isFetching"
+        color="#683724"
+        background-color="rgba(0, 0, 0, .2)"
+      />
       <label
         v-for="option in nearestBranches.list"
         :key="option.id"
