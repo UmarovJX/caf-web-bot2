@@ -157,18 +157,18 @@ webApp.ready();
     "
   >
     <address-picker />
-
-    <router-link :to="{ name: 'cart-view' }" class="header-icon">
-      <x-icon
-        color="var(--brown)"
-        name="shopping_cart"
-        size="18"
+    <div>
+      <router-link
+        :to="{ name: 'cart-view' }"
+        class="header-icon"
         style="margin-right: 10px"
-      />
-    </router-link>
-    <router-link :to="{ name: 'account-view' }" class="header-icon">
-      <x-icon color="var(--brown)" name="person" size="18" />
-    </router-link>
+      >
+        <x-icon color="var(--brown)" name="shopping_cart" size="18" />
+      </router-link>
+      <router-link :to="{ name: 'account-view' }" class="header-icon">
+        <x-icon color="var(--brown)" name="person" size="18" />
+      </router-link>
+    </div>
   </div>
   <!--  <div-->
   <!--    :style="checkedValue.value === 'pickup' ? 'padding: .75rem 1rem' : ''"-->
