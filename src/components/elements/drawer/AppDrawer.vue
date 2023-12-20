@@ -83,17 +83,13 @@ onMounted(() => {
   z-index: 9998;
   bottom: 0;
   width: 100%;
-  height: 100vh;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: end;
+  background-color: var(--background_secondary);
   transition: all 0.5s ease-in-out;
   border-radius: 16px 16px 0 0;
   border: 1px solid var(--background_secondary);
   overflow: hidden;
+  //opacity: 1;
 }
 
 //.modal-enter-from {
