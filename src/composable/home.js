@@ -1,13 +1,12 @@
-import { ref } from "vue";
 import api from "@/services/api";
 
-const homeInfo = ref(null);
+let homeInfo = null;
 export async function useHomeInfo() {
   if (!homeInfo.value) {
     const {
       data: { result },
     } = await api.home.getHomeItems();
-    homeInfo.value = result;
+    homeInfo = result;
   }
-  return homeInfo.value;
+  return homeInfo;
 }

@@ -1,4 +1,4 @@
-.home-wrapper{
+.home-wrapper {
   min-height: 100vh;
 }
 
@@ -9,14 +9,13 @@
 
 .page-layout {
   //background-color: var(--background_primary);
-  display: flex;
   //padding-top: 64px;
   //margin-top: 1rem;
   height: 100%;
   min-height: 100vh;
 }
 
-.basket-button-wrapper{
+.basket-button-wrapper {
   position: sticky;
   bottom: 0;
 }
@@ -34,6 +33,6 @@
 
   & p {
     color: var(--white);
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 }
