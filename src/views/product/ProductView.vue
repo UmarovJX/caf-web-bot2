@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from "vue";
-import { onBeforeRouteLeave, useRoute } from "vue-router";
+import { onBeforeRouteLeave, useRoute, useRouter } from "vue-router";
 import api from "@/services/api";
 import XIcon from "@/components/elements/material-icons/XIcon.vue";
 import logo from "@/assets/logo.svg";
@@ -23,6 +23,7 @@ const { t } = useI18n();
 // const locale = localStorage.getItem("locale") || "uz";
 
 const route = useRoute();
+const router = useRouter();
 let product = ref({});
 let imageUrl = ref(logo);
 let variations = ref([]);
@@ -217,6 +218,7 @@ async function productViewButtonHandler() {
         window[TELEGRAM][WEB_APP].MainButton.disable();
         await saveToBasket();
         window[TELEGRAM][WEB_APP].MainButton.enable();
+        setTimeout(() => router.push({ name: "delivery-view" }), 500);
       }
     }
   }
