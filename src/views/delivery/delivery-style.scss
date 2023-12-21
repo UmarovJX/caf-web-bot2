@@ -1,5 +1,8 @@
 .home-wrapper {
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .delivery {
@@ -11,8 +14,13 @@
   //background-color: var(--background_primary);
   //padding-top: 64px;
   //margin-top: 1rem;
-  height: 100%;
-  min-height: 100vh;
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
 }
 
 .basket-button-wrapper {
