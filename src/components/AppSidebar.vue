@@ -6,7 +6,7 @@ const props = defineProps({
   },
 });
 function scroll(id) {
-  document.scroll({
+  window.scroll({
     top: document.getElementById(id).getBoundingClientRect.top - 100,
   });
 }
@@ -53,6 +53,7 @@ function scroll(id) {
     // text-orientation: mixed;
     // transform: rotate(180deg);
     color: var(--content_3);
+    cursor: pointer;
 
     &.active {
       color: var(--content_1);
