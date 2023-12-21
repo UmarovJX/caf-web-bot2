@@ -1,11 +1,15 @@
 import { ref } from "vue";
 import api from "@/services/api";
-const {
-  data: { result },
-} = await api.client.getClient();
-const user = ref(result);
 
-export function useUser() {
+const user = ref(null);
+
+export async function useUser() {
+  if (!user.value) {
+    const {
+      data: { result },
+    } = await api.client.getClient();
+    user.value = result;
+  }
   return {
     user,
   };
