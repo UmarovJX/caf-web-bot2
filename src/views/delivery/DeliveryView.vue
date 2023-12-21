@@ -33,7 +33,7 @@ import { enableAppScroll } from "@/util/app.util";
 import { useUser } from "@/composable/client";
 import { useHomeInfo, useShopInfo } from "@/composable/cache";
 
-const { user } = await useUser();
+const { user } = useUser();
 const { t, locale } = useI18n();
 locale.value = user.value.language || locale.value;
 
