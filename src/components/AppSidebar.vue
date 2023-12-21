@@ -7,10 +7,7 @@ const props = defineProps({
 });
 function scroll(id) {
   window.scroll({
-    top:
-      document.getElementById(id).getBoundingClientRect.top +
-      window.scrollY -
-      100,
+    top: document.getElementById(id).getBoundingClientRect().top - 100,
   });
 }
 </script>
