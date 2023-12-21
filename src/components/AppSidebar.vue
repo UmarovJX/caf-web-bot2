@@ -37,6 +37,7 @@ const props = defineProps({
   -ms-overflow-style: none;
   scrollbar-width: none;
   border-radius: 0 0 20px 20px;
+  z-index: 1000;
 
   &::-webkit-scrollbar {
     display: none;
