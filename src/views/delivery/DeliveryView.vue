@@ -237,9 +237,8 @@ onBeforeRouteLeave(() => {
     />
 
     <app-header />
-
+    <app-sidebar :categories="homeCategories" />
     <div class="page-layout">
-      <app-sidebar :categories="homeCategories" />
       <div class="delivery d-flex flex-column">
         <delivery-section
           v-for="category in homeCategories"

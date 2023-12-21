@@ -99,9 +99,9 @@ function changeBodyStyle() {
     appBody.style.overflowY = "hidden";
     appBody.style.height = "100vh";
   } else {
-    appElement.style.overflowY = "auto";
+    appElement.style.overflowY = "unset";
     appElement.style.height = "";
-    appBody.style.overflowY = "auto";
+    appBody.style.overflowY = "unset";
     appBody.style.height = "";
   }
 }
