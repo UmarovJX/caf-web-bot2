@@ -5,6 +5,11 @@ const props = defineProps({
     required: true,
   },
 });
+function scroll(id) {
+  document.scroll({
+    top: document.getElementById(id).getBoundingClientRect.top - 100,
+  });
+}
 </script>
 
 <template>
@@ -14,7 +19,7 @@ const props = defineProps({
         v-if="category && category.products && category.products.length"
         class="sidebar-link l-large"
         :class="{ active: category.active }"
-        :href="`#${category.id}`"
+        @click="scroll(category.id)"
       >
         {{ category.name }}
       </a>
@@ -37,7 +42,7 @@ const props = defineProps({
   -ms-overflow-style: none;
   scrollbar-width: none;
   border-radius: 0 0 20px 20px;
-  z-index: 1000;
+  z-index: 10;
 
   &::-webkit-scrollbar {
     display: none;
