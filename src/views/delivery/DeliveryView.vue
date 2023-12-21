@@ -32,10 +32,13 @@ import {
 import { enableAppScroll } from "@/util/app.util";
 import { useUser } from "@/composable/client";
 import { useHomeInfo, useShopInfo } from "@/composable/cache";
-
-const { user } = useUser();
 const { t, locale } = useI18n();
-locale.value = user.value.language || locale.value;
+
+async function checkUserLocale() {
+  const { user } = await useUser();
+  locale.value = user.value.language || locale.value;
+}
+checkUserLocale();
 
 const route = useRoute();
 const router = useRouter();
