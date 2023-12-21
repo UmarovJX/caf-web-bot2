@@ -1,5 +1,5 @@
 import { useMainInfo } from "@/composable/cache";
-import { ref, watch } from "vue";
+import { ref } from "vue";
 const deliveryOptions = ref([
   {
     id: 1,
@@ -23,16 +23,18 @@ const deliveryOptions = ref([
 const active = ref(false);
 const deliveryType = ref("table");
 
-let filterData = [];
-try {
-  const { data } = await useMainInfo();
-  filterData = data.result;
-} catch (e) {
-  console.error(e, "error");
-}
-deliveryOptions.value = deliveryOptions.value.filter(
-  (item) => filterData[item.check]
-);
+(async function () {
+  let filterData = [];
+  try {
+    const { data } = await useMainInfo();
+    filterData = data.result;
+  } catch (e) {
+    console.error(e, "error");
+  }
+  deliveryOptions.value = deliveryOptions.value.filter(
+    (item) => filterData[item.check]
+  );
+})();
 
 function openDrawerHandler() {
   active.value = true;
