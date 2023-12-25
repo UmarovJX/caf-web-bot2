@@ -1,4 +1,6 @@
 <script setup>
+import { nextTick, onMounted, ref, watch } from "vue";
+
 const props = defineProps({
   categories: {
     type: Array,
@@ -16,6 +18,10 @@ function scroll(id) {
       100,
   });
 }
+watch(
+  () => props.active.value,
+  (e) => console.log(e)
+);
 </script>
 
 <template>
