@@ -23,7 +23,7 @@ watch(
   (v) => {
     console.log(v);
     const target = sidebar.value.querySelector(`[data-id="${v}"]`);
-    if (isInViewport(target))
+    if (!isInViewport(target))
       target.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
