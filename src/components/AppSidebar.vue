@@ -23,12 +23,15 @@ watch(
   (v) => {
     console.log(v);
     const target = sidebar.value.querySelector(`[data-id="${v}"]`);
-    if (!isInViewport(target))
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "start",
-      });
+    if (!isInViewport(target)) {
+      const leftPosition = target.offsetLeft;
+      sidebar.value.scrollTo({ left: leftPosition - 10, behavior: "smooth" });
+    }
+    // target.scrollIntoView({
+    //   behavior: "smooth",
+    //   block: "nearest",
+    //   inline: "start",
+    // });
   }
 );
 function isInViewport(element) {
