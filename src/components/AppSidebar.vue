@@ -79,7 +79,6 @@ watch(
     border: 1px solid rgba(0, 0, 0, 0);
     cursor: pointer;
     padding: 5px 10px;
-    word-wrap: normal;
     &.active {
       color: var(--content_1);
       border: 1px solid white;
