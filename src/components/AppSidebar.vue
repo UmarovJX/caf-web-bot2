@@ -19,7 +19,7 @@ function scroll(id) {
   });
 }
 watch(
-  () => props.active.value,
+  () => props.active,
   (v) => {
     console.log(v);
     const target = ref.value.querySelector(`[data-id="${v}"]`);
