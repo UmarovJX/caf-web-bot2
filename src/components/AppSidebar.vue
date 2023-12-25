@@ -46,8 +46,7 @@ watch(
   left: 0;
   width: 100%;
   overflow-x: scroll;
-  background-color: rgba(255, 255, 255, 0);
-  backdrop-filter: blur(10px);
+  background-color: #683724;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -68,6 +67,7 @@ watch(
     border-radius: 100%;
     border: 1px solid rgba(0, 0, 0, 0);
     cursor: pointer;
+    padding: 5px 10px;
     word-wrap: normal;
     &.active {
       color: var(--content_1);
