@@ -1,6 +1,8 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, defineEmits } from "vue";
 import AppProduct from "@/components/AppProduct.vue";
+import { vIntersectionObserver } from "@vueuse/components";
+const emit = defineEmits(["intersect"]);
 
 const props = defineProps({
   title: {
@@ -16,12 +18,24 @@ const props = defineProps({
     required: true,
   },
 });
+
+function intersectionHandler(isIntersecting) {
+  if (isIntersecting) emit("intersect");
+}
 </script>
 
 <template>
   <div v-if="products.length" class="delivery-section">
     <div class="custom-container">
-      <h2 class="h-small" :id="category.id">{{ props.title }}</h2>
+      <h2
+        class="h-small"
+        :id="category.id"
+        v-intersection-observer="
+          ([{ isIntersecting }]) => intersectionHandler(isIntersecting)
+        "
+      >
+        {{ props.title }}
+      </h2>
 
       <div class="delivery-cards">
         <app-product
