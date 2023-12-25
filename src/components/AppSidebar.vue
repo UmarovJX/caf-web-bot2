@@ -69,7 +69,7 @@ function isInViewport(element) {
   left: 0;
   width: 100%;
   overflow-x: scroll;
-  background-color: #683724;
+  background-color: var(--bg-sidebar);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -93,7 +93,7 @@ function isInViewport(element) {
     cursor: pointer;
     padding: 5px 10px;
     &.active {
-      color: var(--content_1);
+      color: white;
       border: 1px solid var(--content_1);
     }
   }
