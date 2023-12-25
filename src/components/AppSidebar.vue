@@ -1,6 +1,6 @@
 <script setup>
 import { nextTick, onMounted, ref, watch } from "vue";
-
+const sidebar = ref(null);
 const props = defineProps({
   categories: {
     type: Array,
@@ -20,18 +20,26 @@ function scroll(id) {
 }
 watch(
   () => props.active.value,
-  (e) => console.log(e)
+  (v) => {
+    const target = ref.value.querySelector(`[data-id="${v}"]`);
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "start",
+    });
+  }
 );
 </script>
 
 <template>
-  <div class="sidebar">
+  <div class="sidebar" ref="sidebar">
     <template v-for="(category, index) in props.categories" :key="index">
       <a
         v-if="category && category.products && category.products.length"
         class="sidebar-link l-large"
         :class="{ active: category.id === active }"
         @click="scroll(category.id)"
+        :data-id="category.id"
       >
         {{ category.name }}
       </a>
