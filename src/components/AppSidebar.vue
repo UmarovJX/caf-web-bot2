@@ -1,5 +1,5 @@
 <script setup>
-import { nextTick, onMounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 const sidebar = ref(null);
 const props = defineProps({
   categories: {
@@ -22,8 +22,7 @@ watch(
   () => props.active,
   (v) => {
     console.log(v);
-    const target = ref.value.querySelector(`[data-id="${v}"]`);
-    console.log(target);
+    const target = sidebar.value.querySelector(`[data-id="${v}"]`);
     target.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
