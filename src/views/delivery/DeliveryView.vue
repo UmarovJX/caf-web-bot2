@@ -57,9 +57,7 @@ let isFetching = ref(false);
 
 const activeAnchor = ref(null);
 function intersectionHandler(isIntersecting, id) {
-  console.log(isIntersecting);
-  console.log(id);
-  activeAnchor.value = id;
+  if (isIntersecting) activeAnchor.value = id;
 }
 watch(
   () => active.value,

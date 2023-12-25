@@ -46,8 +46,8 @@ watch(
   left: 0;
   width: 100%;
   overflow-x: scroll;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   gap: 5px;
@@ -65,10 +65,13 @@ watch(
     // text-orientation: mixed;
     // transform: rotate(180deg);
     color: var(--content_3);
+    border-radius: 100%;
+    border: 1px solid rgba(0, 0, 0, 0);
     cursor: pointer;
     word-wrap: normal;
     &.active {
       color: var(--content_1);
+      border: 1px solid white;
     }
   }
 }
