@@ -23,13 +23,24 @@ watch(
   (v) => {
     console.log(v);
     const target = sidebar.value.querySelector(`[data-id="${v}"]`);
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "start",
-    });
+    if (isInViewport(target))
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
   }
 );
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
 </script>
 
 <template>
@@ -58,8 +69,8 @@ watch(
   background-color: #683724;
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 0 5px;
+  gap: 10px;
+  padding: 10px;
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
@@ -75,12 +86,12 @@ watch(
     min-width: fit-content;
     color: var(--content_3);
     border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0);
+    border: 1px solid var(--content_3);
     cursor: pointer;
     padding: 5px 10px;
     &.active {
       color: var(--content_1);
-      border: 1px solid white;
+      border: 1px solid var(--content_1);
     }
   }
 }
