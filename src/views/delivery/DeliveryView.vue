@@ -248,7 +248,7 @@ onBeforeRouteLeave(() => {
     />
 
     <app-header />
-    <app-sidebar :categories="homeCategories" />
+    <app-sidebar :categories="homeCategories" :active="activeAnchor" />
     <div class="page-layout">
       <div class="delivery d-flex flex-column">
         <delivery-section
