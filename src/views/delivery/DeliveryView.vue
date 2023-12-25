@@ -56,7 +56,11 @@ let basketCtx = ref({
 let isFetching = ref(false);
 
 const activeAnchor = ref(null);
-
+function intersectionHandler(isIntersecting, id) {
+  console.log(isIntersecting);
+  console.log(id);
+  activeAnchor.value = id;
+}
 watch(
   () => active.value,
   (a) => {
@@ -251,7 +255,7 @@ onBeforeRouteLeave(() => {
           v-for="category in homeCategories"
           v-intersection-observer="
             ([{ isIntersecting }]) =>
-              isIntersecting && (activeAnchor = category.id)
+              intersectionHandler(isIntersecting, category.id)
           "
           :key="category.id"
           :category="category"
