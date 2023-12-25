@@ -22,6 +22,7 @@ watch(
   () => props.active.value,
   (v) => {
     const target = ref.value.querySelector(`[data-id="${v}"]`);
+    console.log(target);
     target.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
@@ -72,7 +73,7 @@ watch(
     // text-orientation: mixed;
     // transform: rotate(180deg);
     color: var(--content_3);
-    border-radius: 100%;
+    border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0);
     cursor: pointer;
     padding: 5px 10px;
