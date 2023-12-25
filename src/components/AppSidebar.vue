@@ -21,6 +21,7 @@ function scroll(id) {
 watch(
   () => props.active.value,
   (v) => {
+    console.log(v);
     const target = ref.value.querySelector(`[data-id="${v}"]`);
     console.log(target);
     target.scrollIntoView({
@@ -72,6 +73,7 @@ watch(
     // writing-mode: vertical-rl;
     // text-orientation: mixed;
     // transform: rotate(180deg);
+    min-width: fit-content;
     color: var(--content_3);
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0);
