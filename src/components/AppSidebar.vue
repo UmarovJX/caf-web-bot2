@@ -4,6 +4,9 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  active: {
+    type: String,
+  },
 });
 function scroll(id) {
   window.scroll({
@@ -21,7 +24,7 @@ function scroll(id) {
       <a
         v-if="category && category.products && category.products.length"
         class="sidebar-link l-large"
-        :class="{ active: category.active }"
+        :class="{ active: category.id === active }"
         @click="scroll(category.id)"
       >
         {{ category.name }}
@@ -37,14 +40,14 @@ function scroll(id) {
   left: 0;
   width: 100%;
   overflow-x: scroll;
-  background-color: #683724;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
   gap: 5px;
   padding: 0 5px;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  border-radius: 0 0 20px 20px;
   z-index: 10;
 
   &::-webkit-scrollbar {
@@ -57,7 +60,7 @@ function scroll(id) {
     // transform: rotate(180deg);
     color: var(--content_3);
     cursor: pointer;
-
+    word-wrap: normal;
     &.active {
       color: var(--content_1);
     }

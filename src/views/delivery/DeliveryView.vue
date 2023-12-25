@@ -3,6 +3,7 @@ import { onBeforeRouteLeave, useRoute, useRouter } from "vue-router";
 import { nextTick, onMounted, ref, watch } from "vue";
 
 import { useI18n } from "@/locales";
+import { vIntersectionObserver } from "@vueuse/components";
 
 import VueElementLoading from "vue-element-loading";
 import DeliverySection from "@/views/delivery/DeliverySection.vue";
@@ -54,6 +55,8 @@ let basketCtx = ref({
 
 let isFetching = ref(false);
 
+const activeAnchor = ref(null);
+
 watch(
   () => active.value,
   (a) => {
@@ -96,6 +99,7 @@ async function fetchHomeItems() {
   try {
     const res = await useHomeInfo();
     homeCategories.value = res;
+    activeAnchor.value = res[0].id;
   } finally {
     isFetching.value = false;
   }
@@ -245,6 +249,10 @@ onBeforeRouteLeave(() => {
       <div class="delivery d-flex flex-column">
         <delivery-section
           v-for="category in homeCategories"
+          v-intersection-observer="
+            ([{ isIntersecting }]) =>
+              isIntersecting && (activeAnchor = category.id)
+          "
           :key="category.id"
           :category="category"
           :products="category.products"
