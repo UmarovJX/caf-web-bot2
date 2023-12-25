@@ -45,12 +45,18 @@ function initializeTableDetails() {
   }
 }
 
-function openQrPage() {
-  saveRequestPageInQr({
-    name: route.name,
-  });
-  router.push({
-    name: "table-scanner",
+// function openQrPage() {
+//   saveRequestPageInQr({
+//     name: route.name,
+//   });
+//   router.push({
+//     name: "table-scanner",
+//   });
+// }
+function openScanner() {
+  window.Telegram.WebApp.showScanQrPopup({}, (d) => {
+    console.log(d);
+    window.Telegram.WebApp.closeScanQrPopup();
   });
 }
 
@@ -71,7 +77,7 @@ onMounted(() => {
     </div>
     <round-button
       class="c-flex c-align-center justify-content-center"
-      @click="openQrPage"
+      @click="openScanner"
     >
       <x-icon name="qr_code_2" />
       <span class="cm-l-1"> Сканировать </span>
