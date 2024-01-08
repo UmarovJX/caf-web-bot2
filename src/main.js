@@ -7,7 +7,7 @@ import { i18n } from "@/locales";
 
 import "./assets/scss/main.scss";
 window.onunhandledrejection = function (e) {
-
+  window.Telegram.WebApp.showPopup(e);
 };
 const app = createApp(App);
 
