@@ -13,7 +13,7 @@ export async function useUser() {
     }
   } catch (error) {
     console.log(error);
-    alert(Object.keys(error.request));
+    alert(error.request.config.url);
   }
   return {
     user,
