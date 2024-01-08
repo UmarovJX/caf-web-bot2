@@ -30,15 +30,15 @@ import {
   hasTableSession,
 } from "@/util/address.util";
 import { enableAppScroll } from "@/util/app.util";
-// import { useUser } from "@/composable/client";
+import { useUser } from "@/composable/client";
 import { useHomeInfo, useShopInfo } from "@/composable/cache";
 const { t, locale } = useI18n();
 
-// async function checkUserLocale() {
-//   const { user } = await useUser();
-//   locale.value = user.value.language || locale.value;
-// }
-// checkUserLocale();
+async function checkUserLocale() {
+  const { user } = await useUser();
+  locale.value = user.value.language || locale.value;
+}
+checkUserLocale();
 
 const route = useRoute();
 const router = useRouter();
