@@ -6,6 +6,9 @@ import router from "./router";
 import { i18n } from "@/locales";
 
 import "./assets/scss/main.scss";
+window.unhandledrejection((e) => {
+  alert(e.config.url);
+});
 const app = createApp(App);
 
 app.use(createPinia());
