@@ -7,7 +7,8 @@ import { i18n } from "@/locales";
 
 import "./assets/scss/main.scss";
 window.onunhandledrejection = function (e) {
-  window.Telegram.WebApp.showAlert(e.reason.config.url);
+  console.log(e.reason.config.data);
+  console.log(e);
 };
 const app = createApp(App);
 
