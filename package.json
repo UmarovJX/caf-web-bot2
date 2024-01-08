@@ -14,7 +14,7 @@
     "@vueuse/components": "^10.7.0",
     "@vueuse/core": "^9.11.1",
     "add": "^2.0.6",
-    "axios": "^1.2.3",
+    "axios": "^1.6.5",
     "pinia": "^2.0.29",
     "vue": "^3.2.45",
     "vue-barcode-reader": "^1.0.3",
