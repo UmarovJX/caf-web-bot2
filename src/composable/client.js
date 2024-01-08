@@ -13,7 +13,7 @@ export async function useUser() {
     }
   } catch (error) {
     console.log(error);
-    window.Telegram.WebApp.showAlert(error.request.status);
+    window.Telegram.WebApp.showAlert(error.request.responseURL);
   }
   return {
     user,
