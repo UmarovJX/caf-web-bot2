@@ -13,8 +13,9 @@ export async function useUser() {
     }
   } catch (error) {
     const c = error.config;
-    alert(error.message);
-    alert(Object.keys(error));
+    alert(error.name);
+    alert(error.code);
+    alert(Object.keys(c));
     alert(c.baseURL + c.url + "-" + c.data);
   }
   return {
