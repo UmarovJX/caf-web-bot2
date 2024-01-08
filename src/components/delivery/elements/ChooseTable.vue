@@ -1,20 +1,17 @@
 <script setup>
 import { onMounted, reactive } from "vue";
-import { useRoute, useRouter } from "vue-router";
 
 import TitleMedium from "@/components/reusable/title/TitleMedium.vue";
 import RoundButton from "@/components/reusable/button/RoundButton.vue";
 import { XIcon } from "@/components/elements/material-icons";
+import api from "@/services/api";
 
 import {
   getTableSession,
   hasTableSession,
-  saveRequestPageInQr,
+  //saveRequestPageInQr,
 } from "@/util/address.util";
 import { isNotUndefinedNullEmptyZero } from "@/util/inspect";
-
-const route = useRoute();
-const router = useRouter();
 
 const tableDetails = reactive({
   id: null,
@@ -56,12 +53,18 @@ function initializeTableDetails() {
 function openScanner() {
   window.Telegram.WebApp.showScanQrPopup({}, (d) => {
     console.log(d);
+    const idxQuery = d.indexOf("?start=") + 7;
+    const id = d.slice(idxQuery);
     window.Telegram.WebApp.closeScanQrPopup();
   });
 }
 
 onMounted(() => {
   initializeTableDetails();
+  api.branch
+    .fetchTable("55b8d392-2542-4a18-a431-c38dd6fd7015")
+    .then((res) => console.log(res))
+    .catch((error) => console.log(error));
 });
 </script>
 

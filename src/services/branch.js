@@ -12,6 +12,9 @@ class BranchService extends Core {
   fetchAllBranches(latitude, longitude) {
     return this.get("branches", { latitude, longitude });
   }
+  fetchTable(id) {
+    return this.get(`branches/${id}/table`);
+  }
 }
 
 export default new BranchService();
