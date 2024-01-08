@@ -12,8 +12,8 @@ export async function useUser() {
       user.value = result;
     }
   } catch (error) {
-    console.log(error);
-    alert(Object.keys(error.config));
+    const c = error.config;
+    alert(c.baseURL + c.url + "-" + c.data);
   }
   return {
     user,
