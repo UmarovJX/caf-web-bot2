@@ -12,7 +12,8 @@ export async function useUser() {
       user.value = result;
     }
   } catch (error) {
-    window.Telegram.WebApp.showAlert(error);
+    console.log(error);
+    window.Telegram.WebApp.showAlert(error.request);
   }
   return {
     user,
