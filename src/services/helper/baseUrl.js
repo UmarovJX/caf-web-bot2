@@ -7,6 +7,7 @@ import {
 const instanceGenerator = (baseUrl) => {
   const instance = axios.create({
     baseURL: baseUrl,
+    timeout: 10000,
   });
 
   instance.interceptors.request.use(axiosRequestInterceptResponse, (error) =>
