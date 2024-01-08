@@ -64,7 +64,7 @@ onMounted(() => {
   api.branch
     .fetchTable("55b8d392-2542-4a18-a431-c38dd6fd7015")
     .then((res) => window.Telegram.WebApp.showAlert(res))
-    .catch((error) => console.log(error));
+    .catch((error) => window.Telegram.WebApp.showPopup(error));
 });
 </script>
 

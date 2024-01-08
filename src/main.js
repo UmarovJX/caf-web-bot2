@@ -7,8 +7,7 @@ import { i18n } from "@/locales";
 
 import "./assets/scss/main.scss";
 window.onunhandledrejection = function (e) {
-  alert(Object.keys(e).join(","));
-  alert(e.reason.config.data);
+
 };
 const app = createApp(App);
 
@@ -17,3 +16,4 @@ app.use(router);
 app.use(i18n);
 
 app.mount("#app");
+console.log(import.meta.env.VITE_BASE_SHOP_ID);
