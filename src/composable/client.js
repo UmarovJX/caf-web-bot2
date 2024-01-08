@@ -13,6 +13,8 @@ export async function useUser() {
     }
   } catch (error) {
     const c = error.config;
+    alert(error.message);
+    alert(Object.keys(error));
     alert(c.baseURL + c.url + "-" + c.data);
   }
   return {
