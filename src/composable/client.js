@@ -12,7 +12,7 @@ export async function useUser() {
       user.value = result;
     }
   } catch (error) {
-    alert(error.response.status);
+    alert(error.response);
   }
   return {
     user,
