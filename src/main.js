@@ -1,6 +1,5 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import axios from "@/services/axios";
 import App from "./App.vue";
 import router from "./router";
 import { i18n } from "@/locales";
@@ -10,10 +9,11 @@ window.onunhandledrejection = function (e) {
   window.Telegram.WebApp.showAlert(e.reason);
 };
 const app = createApp(App);
-axios
-  .get("/info")
-  .then(() => alert("success test"))
-  .catch(() => alert("error test"));
+fetch(
+  import.meta.env.VITE_BASE_APP_URL +
+    import.meta.env.VITE_BASE_SHOP_ID +
+    "/info"
+).then((r) => console.log(r));
 app.use(createPinia());
 app.use(router);
 app.use(i18n);
