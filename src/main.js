@@ -13,7 +13,9 @@ fetch(
   import.meta.env.VITE_BASE_APP_URL +
     import.meta.env.VITE_BASE_SHOP_ID +
     "/info"
-).then((r) => console.log(r));
+)
+  .then(() => alert("success"))
+  .catch(() => alert("test fail"));
 app.use(createPinia());
 app.use(router);
 app.use(i18n);
