@@ -52,19 +52,19 @@ function initializeTableDetails() {
 // }
 function openScanner() {
   window.Telegram.WebApp.showScanQrPopup({}, (d) => {
-    console.log(d);
     const idxQuery = d.indexOf("?start=") + 7;
     const id = d.slice(idxQuery);
+    api.branch.fetchTable(id).then((res) => {});
     window.Telegram.WebApp.closeScanQrPopup();
   });
 }
 
 onMounted(() => {
   initializeTableDetails();
-  // api.branch
-  //   .fetchTable("55b8d392-2542-4a18-a431-c38dd6fd7015")
-  //   .then((res) => window.Telegram.WebApp.showAlert(res))
-  //   .catch((error) => window.Telegram.WebApp.showPopup(error));
+  api.branch
+    .fetchTable("55b8d392-2542-4a18-a431-c38dd6fd7015")
+    .then((res) => console.log(res))
+    .catch((error) => window.Telegram.WebApp.showPopup(error));
 });
 </script>
 
