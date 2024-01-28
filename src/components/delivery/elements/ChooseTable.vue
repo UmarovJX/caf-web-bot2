@@ -54,13 +54,18 @@ function openScanner() {
   window.Telegram.WebApp.showScanQrPopup({}, async (d) => {
     const idxQuery = d.indexOf("?start=") + 7;
     const id = d.slice(idxQuery);
+    console.log(id);
     //api.branch.fetchTable(id).then((res) => {});
     window.Telegram.WebApp.closeScanQrPopup();
   });
 }
 async function getTable() {
-  const res = await api.branch.getTable2('55b8d392-2542-4a18-a431-c38dd6fd7015');
-  console.log(res)
+  alert(1);
+  const res = await api.branch.getTable2(
+    "55b8d392-2542-4a18-a431-c38dd6fd7015"
+  );
+  alert(2);
+  console.log(res);
 }
 
 onMounted(() => {
@@ -77,7 +82,7 @@ onMounted(() => {
     </div>
     <round-button class="c-flex c-align-center justify-content-center" @click="getTable">
       <x-icon name="qr_code_2" />
-      <span class="cm-l-1"> Сканировать </span>
+      <span class="cm-l-1"> Сканировать! </span>
     </round-button>
   </div>
 </template>
