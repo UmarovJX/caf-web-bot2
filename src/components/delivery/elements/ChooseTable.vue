@@ -51,37 +51,32 @@ function initializeTableDetails() {
 //   });
 // }
 function openScanner() {
-  window.Telegram.WebApp.showScanQrPopup({}, (d) => {
+  window.Telegram.WebApp.showScanQrPopup({}, async (d) => {
     const idxQuery = d.indexOf("?start=") + 7;
     const id = d.slice(idxQuery);
-    api.branch.fetchTable(id).then((res) => {});
+    //api.branch.fetchTable(id).then((res) => {});
     window.Telegram.WebApp.closeScanQrPopup();
   });
+}
+async function getTable(id) {
+  const res = await api.branch.getTable2(id);
+  console.log(res)
 }
 
 onMounted(() => {
   initializeTableDetails();
-  api.branch
-    .fetchTable("55b8d392-2542-4a18-a431-c38dd6fd7015")
-    .then((res) => console.log(res))
-    .catch((error) => window.Telegram.WebApp.showPopup(error));
 });
 </script>
 
 <template>
   <div>
     <title-medium class="cm-b-2">QR код стола</title-medium>
-    <div
-      v-if="tableDetails.name"
-      class="c-flex c-align-center cm-b-2 c-column-gap-1"
-    >
+    <div v-if="tableDetails.name" class="c-flex c-align-center cm-b-2 c-column-gap-1">
       <x-icon name="table_restaurant" size="24" />
       <span>{{ tableDetails.name }}</span>
     </div>
-    <round-button
-      class="c-flex c-align-center justify-content-center"
-      @click="openScanner"
-    >
+    <round-button class="c-flex c-align-center justify-content-center"
+      @click="() => getTable('55b8d392-2542-4a18-a431-c38dd6fd7015')">
       <x-icon name="qr_code_2" />
       <span class="cm-l-1"> Сканировать </span>
     </round-button>
