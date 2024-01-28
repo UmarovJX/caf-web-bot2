@@ -61,7 +61,7 @@ function openScanner() {
 }
 async function getTable() {
   alert(1);
-  const res = await api.branch.getTable2(
+  const res = await api.branch.fetchTable(
     "55b8d392-2542-4a18-a431-c38dd6fd7015"
   );
   alert(2);
